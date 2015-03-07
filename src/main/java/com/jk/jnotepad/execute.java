@@ -2,7 +2,10 @@ package com.jk.jnotepad;
 import java.awt.Toolkit;
 import java.awt.datatransfer.*;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.*;
 
@@ -18,6 +21,9 @@ public class execute {
 	public static void doit(String value){
 		
 		if (value.equals("New")){
+			main.noteWindow.setText("");
+			holder.setCurrentFile("");
+			main.f.setTitle(holder.getTitle());
 			
 		}else if (value.equals("Open...")){
 			JFileChooser openFile = new JFileChooser();
@@ -25,11 +31,24 @@ public class execute {
 			openFile.addChoosableFileFilter(ft);
 			openFile.showOpenDialog(null);
 			File file = openFile.getSelectedFile();
-			main.noteWindow.replaceSelection(getContentsOfFile(file.toString()));
+			holder.setCurrentFile(file.toString());
+			main.noteWindow.setText(getContentsOfFile(holder.getCurrentFile()));
+			main.f.setTitle(holder.getTitle() + " - " + holder.getCurrentFile());
 			
 		}else if (value.equals("Save")){
+			if(holder.getCurrentFile().equals("")){
+				JOptionPane.showMessageDialog(null,"No file selected.");
+			}else{
+				saveContentsToFile(holder.getCurrentFile());
+			}
 			
 		}else if (value.equals("Save As")){
+			JFileChooser saveFile = new JFileChooser();
+			FileFilter ft = new FileNameExtensionFilter("Text Files", "txt");
+			saveFile.addChoosableFileFilter(ft);
+			saveFile.showSaveDialog(null);
+			File save = saveFile.getSelectedFile();
+			saveContentsToFile(save.toString());
 			
 		}else if (value.equals("Page Setup")){
 			
@@ -37,13 +56,11 @@ public class execute {
 			
 		}else if (value.equals("Exit")){
 			System.exit(0);
-			
 		}else if (value.equals("Undo")){
 			
 		}else if (value.equals("Cut")){
 			
 		}else if (value.equals("Copy")){
-			
 			String selection = main.noteWindow.getSelectedText();
             StringSelection data = new StringSelection(selection);
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -94,19 +111,30 @@ public class execute {
 		}
 		
 		else{
-			JOptionPane.showMessageDialog(null, "Unhandled... Please open a ticket");
+			JOptionPane.showMessageDialog(null, "Unhandled... Please open a ticket with https://github.com/javaking2013/jnotepad");
 		}
 	}
 	
 	public static String getContentsOfFile(String filename){
-		String output = "";
+		String output = "", line = "";
+		try(BufferedReader br = new BufferedReader(new FileReader(filename))){
+			while((line = br.readLine()) != null){
+				output += (line + "\n");
+			}
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null,"Error: " + e.toString());
+		}
+		return output;
+	}
+	
+	public static void saveContentsToFile(String filename){
 		
 		try{
-			BufferedReader reader = new BufferedReader(null);
+			BufferedWriter out = new BufferedWriter(new FileWriter(filename));
+			main.noteWindow.write(out);
+			out.close();
 		}catch(Exception e){
-			
+			JOptionPane.showMessageDialog(null, "Error: " + e.toString());
 		}
-		
-		return output;
 	}
 }

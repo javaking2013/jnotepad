@@ -1,8 +1,18 @@
 package com.jk.jnotepad;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-import javax.swing.*;
+import javax.swing.AbstractAction;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
+import javax.swing.JRootPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.KeyStroke;
 
 public class main {
 	
@@ -80,7 +90,7 @@ public class main {
 		
 		/* set up jframe */
 		f.setJMenuBar(menuBar);
-		f.setTitle("Jnotepad");
+		f.setTitle(holder.getTitle());
 		f.add(p);
 		f.setResizable(true);
 		f.setSize(900,600);
@@ -90,7 +100,8 @@ public class main {
 		
         f.getRootPane().getInputMap(JRootPane.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F5, 0), "f5");
         f.getRootPane().getActionMap().put("f5", new AbstractAction() {
-               public void actionPerformed(ActionEvent e) {
+			private static final long serialVersionUID = 3184570298404185490L;
+			public void actionPerformed(ActionEvent e) {
             	   JOptionPane.showMessageDialog(null,"Congratulations");
                      //display.hotKey.execute("F5");
                }

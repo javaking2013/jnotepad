@@ -1,0 +1,29 @@
+List of items that still need to work
+
+- about
+- help
+- status bar
+- font
+- word wrap
+- date time
+- select all
+- go to
+- find
+- replace
+- find next
+- delete
+- cut
+- undo
+- print
+- page setup
+- new
+
+Wish List
+- Add function keys to common features
+- Add a right mouse-click feature
+- Add font size as a feature
+
+6Mar2015
+- Added the open file feature
+- Added the save feature
+- Added the save as feature
