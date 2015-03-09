@@ -1,4 +1,5 @@
 package com.jk.jnotepad;
+
 import java.awt.Toolkit;
 import java.awt.datatransfer.*;
 import java.io.BufferedReader;
@@ -11,6 +12,8 @@ import javax.swing.*;
 
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import com.jk.jnotepad.utility.printit;
 
 public class execute {
 	
@@ -54,9 +57,9 @@ public class execute {
 				saveContentsToFile(save.toString());
 			}
 			
-		}else if (value.equals("Page Setup")){
-			
 		}else if (value.equals("Print")){
+			printit printJob = new printit(main.noteWindow);
+			printJob.printing();
 			
 		}else if (value.equals("Exit")){
 			System.exit(0);

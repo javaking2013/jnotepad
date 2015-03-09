@@ -58,7 +58,6 @@ public class main {
 		file.add(items.getMenuItem("Save"));
 		file.add(items.getMenuItem("Save As"));
 		file.addSeparator();
-		file.add(items.getMenuItem("Page Setup"));
 		file.add(items.getMenuItem("Print"));
 		file.addSeparator();
 		file.add(items.getMenuItem("Exit"));
