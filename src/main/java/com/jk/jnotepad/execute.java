@@ -31,9 +31,11 @@ public class execute {
 			openFile.addChoosableFileFilter(ft);
 			openFile.showOpenDialog(null);
 			File file = openFile.getSelectedFile();
-			holder.setCurrentFile(file.toString());
-			main.noteWindow.setText(getContentsOfFile(holder.getCurrentFile()));
-			main.f.setTitle(holder.getTitle() + " - " + holder.getCurrentFile());
+			if(!(file == null)){
+				holder.setCurrentFile(file.toString());
+				main.noteWindow.setText(getContentsOfFile(holder.getCurrentFile()));
+				main.f.setTitle(holder.getTitle() + " - " + holder.getCurrentFile());
+			}
 			
 		}else if (value.equals("Save")){
 			if(holder.getCurrentFile().equals("")){
@@ -48,7 +50,9 @@ public class execute {
 			saveFile.addChoosableFileFilter(ft);
 			saveFile.showSaveDialog(null);
 			File save = saveFile.getSelectedFile();
-			saveContentsToFile(save.toString());
+			if(!(save == null)){
+				saveContentsToFile(save.toString());
+			}
 			
 		}else if (value.equals("Page Setup")){
 			
@@ -99,6 +103,15 @@ public class execute {
 		}else if (value.equals("DateTime")){
 			
 		}else if (value.equals("Word Wrap")){
+			if(!holder.isWordWrap()){
+				main.noteWindow.setLineWrap(true);
+				main.noteWindow.setWrapStyleWord(true);
+				holder.setWordWrap(true);
+			}else{
+				main.noteWindow.setLineWrap(false);
+				main.noteWindow.setWrapStyleWord(false);
+				holder.setWordWrap(false);
+			}
 			
 		}else if (value.equals("Font")){
 			
@@ -107,6 +120,9 @@ public class execute {
 		}else if (value.equals("View Help")){
 			
 		}else if (value.equals("About Jnotepad")){
+			
+		}else if (value.equals("NS Lookup")){
+			new com.jk.jnotepad.tools.nslookup();
 			
 		}
 		
@@ -136,5 +152,11 @@ public class execute {
 		}catch(Exception e){
 			JOptionPane.showMessageDialog(null, "Error: " + e.toString());
 		}
+	}
+	
+	public static String getHighlightedText(){
+		String output = "";
+		
+		return output;
 	}
 }

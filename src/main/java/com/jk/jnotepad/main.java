@@ -20,7 +20,7 @@ public class main {
 	public static JScrollPane p;
 	public static JTextArea noteWindow;
 	static JMenuBar menuBar;
-	JMenu file, edit, format, view, help;
+	JMenu file, edit, format, view, help, tools;
 	
 	public main(){
 		showit();
@@ -42,6 +42,7 @@ public class main {
 		format = new JMenu("Format");
 		view = new JMenu("View");
 		help = new JMenu("Help");
+		tools = new JMenu("Tools");
 		
 		/* Add menus to top bar */
 		menuBar.add(file);
@@ -49,6 +50,7 @@ public class main {
 		menuBar.add(format);
 		menuBar.add(view);
 		menuBar.add(help);
+		menuBar.add(tools);
 		
 		/* Add menus to FILE menu */
 		file.add(items.getMenuItem("New"));
@@ -87,6 +89,9 @@ public class main {
 		/* add menus to HELP menu */
 		help.add(items.getMenuItem("View Help"));
 		help.add(items.getMenuItem("About Jnotepad"));
+		
+		/* add menus to TOOLS menu */
+		tools.add(items.getMenuItem("NS Lookup"));
 		
 		/* set up jframe */
 		f.setJMenuBar(menuBar);

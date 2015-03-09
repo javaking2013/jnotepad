@@ -4,7 +4,6 @@ List of items that still need to work
 - help
 - status bar
 - font
-- word wrap
 - date time
 - select all
 - go to
@@ -16,12 +15,19 @@ List of items that still need to work
 - undo
 - print
 - page setup
-- new
 
 Wish List
 - Add function keys to common features
 - Add a right mouse-click feature
+- Add picture menu bar
 - Add font size as a feature
+Font f = editingArea.getFont();
+Font f2 = new Font(f.getFontName(), f.getStyle(), f.getSize()-1);
+editingArea.setFont(f2);
+
+8Mar2015
+- Added word wrap feature
+- Added tools menu with nslookup
 
 6Mar2015
 - Added the open file feature
