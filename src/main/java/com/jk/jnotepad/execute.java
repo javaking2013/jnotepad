@@ -13,7 +13,7 @@ import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import com.jk.jnotepad.utility.printit;
+import com.jk.jnotepad.utility.PrintBean;
 
 public class execute {
 	
@@ -58,7 +58,7 @@ public class execute {
 			}
 			
 		}else if (value.equals("Print")){
-			printit printJob = new printit(main.noteWindow);
+			PrintBean printJob = new PrintBean(main.noteWindow);
 			printJob.printing();
 			
 		}else if (value.equals("Exit")){

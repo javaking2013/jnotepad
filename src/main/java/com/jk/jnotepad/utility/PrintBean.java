@@ -6,22 +6,20 @@ import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
-
-import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
-public class printit implements Printable {
+public class PrintBean implements Printable {
 	
 	JTextArea frameToPrint;
 	
-	public printit(JTextArea f){
+	public PrintBean(JTextArea f){
 		frameToPrint = f;
 	}
 	
 	public void printing(){
 		PrinterJob pj =  PrinterJob.getPrinterJob();
-		PageFormat pf = pj.pageDialog(pj.defaultPage());
-
+		pj.pageDialog(pj.defaultPage());
+		
 		pj.setPrintable(this);
 		
 		boolean ok = pj.printDialog();

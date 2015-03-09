@@ -13,7 +13,6 @@ List of items that still need to work
 - delete
 - cut
 - undo
-- print
 - page setup
 
 Wish List
@@ -24,6 +23,9 @@ Wish List
 Font f = editingArea.getFont();
 Font f2 = new Font(f.getFontName(), f.getStyle(), f.getSize()-1);
 editingArea.setFont(f2);
+
+9Mar2015
+- Added print feature
 
 8Mar2015
 - Added word wrap feature
