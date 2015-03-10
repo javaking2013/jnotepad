@@ -127,6 +127,10 @@ public class execute {
 		}else if (value.equals("NS Lookup")){
 			new com.jk.jnotepad.tools.nslookup();
 			
+		}else if (value.equals("Increase Font")){
+			
+		}else if (value.equals("Decrease Font")){
+			
 		}
 		
 		else{

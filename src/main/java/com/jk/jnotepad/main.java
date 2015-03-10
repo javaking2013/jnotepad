@@ -1,10 +1,12 @@
 package com.jk.jnotepad;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.AbstractAction;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -12,6 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
 
 public class main {
@@ -91,15 +95,26 @@ public class main {
 		
 		/* add menus to TOOLS menu */
 		tools.add(items.getMenuItem("NS Lookup"));
+
+		JToolBar toolbar = new JToolBar("jnotepad toolbar");
+		toolbar.setFloatable(false);
+		
+		toolbar.add(items.getToolMenuItem("exit", "Exit"));
+		toolbar.addSeparator();
+		toolbar.add(new JTextField(10));
+		
+		ImageIcon img = new ImageIcon("");
 		
 		/* set up jframe */
 		f.setJMenuBar(menuBar);
+		f.add(toolbar, BorderLayout.PAGE_START);
 		f.setTitle(holder.getTitle());
 		f.add(p);
 		f.setResizable(true);
 		f.setSize(900,600);
 		f.setVisible(true);
 		f.setLocationRelativeTo(null);
+		f.setIconImage(img.getImage());
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
         f.getRootPane().getInputMap(JRootPane.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F5, 0), "f5");

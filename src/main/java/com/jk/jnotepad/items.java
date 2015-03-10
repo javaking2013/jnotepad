@@ -18,4 +18,19 @@ public class items {
 		});
 		return item;
 	}
+	
+	public static JButton getToolMenuItem(String imageName, final String toolTipText){
+		JButton button = new JButton(toolTipText);
+		
+		//button.setActionCommand(actionCommand);
+	    button.setToolTipText(toolTipText);
+	    button.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				execute.doit(toolTipText);
+			}
+		});
+	    //button.setIcon(new ImageIcon("images/" + imageName + ".jpg", altText));
+		
+		return button;
+	}
 }

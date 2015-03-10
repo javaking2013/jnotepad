@@ -32,15 +32,15 @@ public class PrintBean implements Printable {
 		}
 	}
 	
-	public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+	public int print(Graphics g, PageFormat pf, int pageIndex) throws PrinterException {
 		if (pageIndex > 0){
 			return NO_SUCH_PAGE;
 		}
 		
-		Graphics2D g2d = (Graphics2D)graphics;
-		g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+		Graphics2D g2d = (Graphics2D)g;
+		g2d.translate(pf.getImageableX(), pf.getImageableY());
 		
-		frameToPrint.printAll(graphics);
+		frameToPrint.printAll(g);
 		return PAGE_EXISTS;
 	}
 }

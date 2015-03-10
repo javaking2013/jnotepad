@@ -12,13 +12,12 @@ List of items that still need to work
 - find next
 - delete
 - cut
-- undo
 - page setup
 
 Wish List
 - Add function keys to common features
 - Add a right mouse-click feature
-- Add picture menu bar
+- Change JFrame icon
 - Add font size as a feature
 Font f = editingArea.getFont();
 Font f2 = new Font(f.getFontName(), f.getStyle(), f.getSize()-1);
@@ -26,6 +25,7 @@ editingArea.setFont(f2);
 
 9Mar2015
 - Added print feature
+- Added floating tool bar with exit button
 
 8Mar2015
 - Added word wrap feature
