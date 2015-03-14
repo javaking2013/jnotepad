@@ -12,7 +12,6 @@ List of items that still need to work
 - find next
 - delete
 - cut
-- page setup
 
 Wish List
 - Add function keys to common features
