@@ -1,5 +1,6 @@
 package com.jk.jnotepad;
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -36,6 +37,8 @@ public class main {
 		f = new JFrame();
 		
 		noteWindow = new JTextArea();
+		Font font = new Font(holder.getFontType(), holder.getFontStyle(), holder.getFontSize());
+		noteWindow.setFont(font);
 		
 		p = new JScrollPane(noteWindow);
 		

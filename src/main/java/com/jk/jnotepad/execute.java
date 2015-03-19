@@ -1,5 +1,6 @@
 package com.jk.jnotepad;
 
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.datatransfer.*;
 import java.io.BufferedReader;
@@ -8,12 +9,13 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import javax.swing.*;
 
+import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.jk.jnotepad.utility.PrintBean;
+import com.jk.jnotepad.utility.changeFont;
 
 public class execute {
 	
@@ -117,6 +119,7 @@ public class execute {
 			}
 			
 		}else if (value.equals("Font")){
+			new changeFont();
 			
 		}else if (value.equals("Status Bar")){
 			
