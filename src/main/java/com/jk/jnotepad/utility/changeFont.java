@@ -22,10 +22,10 @@ public class changeFont {
 	private static JButton closeButton, setFontButton;
 	private static JFrame f;
 	private static JScrollPane typePane, stylePane, sizePane;
-	private static JList<String> typeList;
-	private static JList<Integer> styleList, sizeList;
-	private static DefaultListModel<String> typeListModel;
-	private static DefaultListModel<Integer> styleListModel, sizeListModel;
+	private static JList<String> typeList, styleList;
+	private static JList<Integer> sizeList;
+	private static DefaultListModel<String> typeListModel, styleListModel;
+	private static DefaultListModel<Integer> sizeListModel;
 	
 	public changeFont(){
 		showit();
@@ -40,14 +40,14 @@ public class changeFont {
 		setFontButton = new JButton("Set Font");
 		
 		typeListModel = new DefaultListModel<String>();
-		styleListModel = new DefaultListModel<Integer>();
+		styleListModel = new DefaultListModel<String>();
 		sizeListModel = new DefaultListModel<Integer>();
 		
 		typeListModel.addElement("Courier New");
 		
-		styleListModel.addElement(Font.PLAIN);
-		styleListModel.addElement(Font.BOLD);
-		styleListModel.addElement(Font.ITALIC);
+		styleListModel.addElement("Plain");  // 0
+		styleListModel.addElement("Bold");  // 1
+		styleListModel.addElement("Italic");  // 2
 		
 		sizeListModel.addElement(12);
 		sizeListModel.addElement(14);
@@ -58,7 +58,7 @@ public class changeFont {
 		
 		typeList = new JList<String>(typeListModel);
 		typeList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		styleList = new JList<Integer>(styleListModel);
+		styleList = new JList<String>(styleListModel);
 		styleList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		sizeList = new JList<Integer>(sizeListModel);
 		sizeList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -107,10 +107,24 @@ public class changeFont {
 				}
 				
 				Font font = new Font(holder.getFontType(),
-						holder.getFontStyle(), holder.getFontSize());
+						getFontStyle(holder.getFontStyle()), holder.getFontSize());
 				main.noteWindow.setFont(font);
 				f.dispose();
 			}
 		});
+	}
+	
+	private static int getFontStyle(String input){
+		int result = 0;
+		
+		switch (input){
+			case "Plain": result = 0;
+				break;
+			case "Bold": result = 1;
+				break;
+			case "Italic": result = 2;
+				break;
+		}
+		return result;
 	}
 }

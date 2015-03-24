@@ -37,7 +37,7 @@ public class main {
 		f = new JFrame();
 		
 		noteWindow = new JTextArea();
-		Font font = new Font(holder.getFontType(), holder.getFontStyle(), holder.getFontSize());
+		Font font = new Font(holder.getFontType(), Font.PLAIN, holder.getFontSize());
 		noteWindow.setFont(font);
 		
 		p = new JScrollPane(noteWindow);
@@ -102,7 +102,10 @@ public class main {
 		JToolBar toolbar = new JToolBar("jnotepad toolbar");
 		toolbar.setFloatable(false);
 		
+		/* add items to the toolbar */
 		toolbar.add(items.getToolMenuItem("exit", "Exit"));
+		toolbar.addSeparator();
+		toolbar.add(items.getToolMenuItem("browser","Browser"));
 		toolbar.addSeparator();
 		toolbar.add(new JTextField(10));
 		

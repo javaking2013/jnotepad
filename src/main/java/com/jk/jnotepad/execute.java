@@ -1,6 +1,6 @@
 package com.jk.jnotepad;
 
-import java.awt.Font;
+import java.awt.Desktop;
 import java.awt.Toolkit;
 import java.awt.datatransfer.*;
 import java.io.BufferedReader;
@@ -41,6 +41,7 @@ public class execute {
 				main.noteWindow.setText(getContentsOfFile(holder.getCurrentFile()));
 				main.f.setTitle(holder.getTitle() + " - " + holder.getCurrentFile());
 			}
+			main.noteWindow.setCaretPosition(0);
 			
 		}else if (value.equals("Save")){
 			if(holder.getCurrentFile().equals("")){
@@ -66,6 +67,17 @@ public class execute {
 		}else if (value.equals("Exit")){
 			System.exit(0);
 		}else if (value.equals("Undo")){
+			
+		}else if (value.equals("Browser")){
+			File file = new File(holder.getCurrentFile());
+			//Runtime.getRuntime().exec("iexplore.exe " + holder.getCurrentFile());
+			Desktop desktop = Desktop.getDesktop();
+			try {
+				desktop.open(file);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 		}else if (value.equals("Cut")){
 			

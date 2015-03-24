@@ -1,14 +1,12 @@
 package com.jk.jnotepad;
 
-import java.awt.Font;
-
 public class holder {
 	private static String title = "Jnotepad";
 	private static String currentFile = "";
 	private static boolean wordwrap = false;
 	private static int fontSize = 12;
 	private static String fontType = "Courier New";
-	private static int fontStyle = Font.PLAIN;
+	private static String fontStyle = "Plain";
 	
 	public static String getTitle(){return title;}
 	public static void setTitle(String inTitle){title = inTitle;}
@@ -25,6 +23,6 @@ public class holder {
 	public static String getFontType(){return fontType;}
 	public static void setFontType(String inFontType){fontType = inFontType;}
 	
-	public static int getFontStyle(){return fontStyle;}
-	public static void setFontStyle(int inFontStyle){fontStyle = inFontStyle;}
+	public static String getFontStyle(){return fontStyle;}
+	public static void setFontStyle(String inFontStyle){fontStyle = inFontStyle;}
 }
