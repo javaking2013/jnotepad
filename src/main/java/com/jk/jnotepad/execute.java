@@ -17,7 +17,12 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import com.jk.jnotepad.utility.PrintBean;
 import com.jk.jnotepad.utility.changeFont;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class execute {
+	
+	public static final Logger log = LoggerFactory.getLogger(com.jk.jnotepad.execute.class);
 	
 	public execute() {
 		
@@ -65,19 +70,22 @@ public class execute {
 			printJob.printing();
 			
 		}else if (value.equals("Exit")){
+			log.info("Exiting Application - Have a nice day!");
 			System.exit(0);
 		}else if (value.equals("Undo")){
 			
 		}else if (value.equals("Browser")){
-			File file = new File(holder.getCurrentFile());
-			//Runtime.getRuntime().exec("iexplore.exe " + holder.getCurrentFile());
-			Desktop desktop = Desktop.getDesktop();
-			try {
-				desktop.open(file);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			if(!holder.getCurrentFile().equals("")){
+				File file = new File(holder.getCurrentFile());
+				//Runtime.getRuntime().exec("iexplore.exe " + holder.getCurrentFile());
+				Desktop desktop = Desktop.getDesktop();
+				try {
+					desktop.open(file);
+				} catch (IOException e) {
+					log.error("IO Error: ",e);
+				}
 			}
+			
 			
 		}else if (value.equals("Cut")){
 			
