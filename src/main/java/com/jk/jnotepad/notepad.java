@@ -21,7 +21,7 @@ public class notepad {
 	    StatusPrinter.print(lc);
 	    log.info(lc.toString());
 	    // put code here to load properties
-	    XMLConfiguration config = new XMLConfiguration("./src/main/resources/config.xml");
+	    //XMLConfiguration config = new XMLConfiguration("./src/main/resources/config.xml");
 	    
 	}
 }
